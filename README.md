@@ -1,6 +1,8 @@
 # gophetch
 A **BLAZINGLY FAST** sysfetch written in Go.
 
+![Screenshot](https://raw.githubusercontent.com/calvinlarimore/gophetch/main/img/gophetch.png)
+
 ## Why?
 I wanted to mess around with goroutines and channels and a sysfetch made sense for async.
 
