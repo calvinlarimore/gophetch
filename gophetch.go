@@ -20,11 +20,11 @@ const (
 
 	bold = "\033[1m"
 
-	format = "%s%s%10s%s - %s%s%s"
+	format = "\033[36m\033[1m%10s\033[0m - %s%s\033[0m"
 )
 
 func main() {
-	fmt.Println(fmt.Sprintf("%7s %s%s%s%s %s\n", "-", cyan, bold, "Gophetch", reset, "-"))
+	fmt.Print("      - \033[36m\033[1mGophetch\033[0m -\n\n")
 
 	username := make(chan string, 1)
 	go getUser(username)
@@ -55,15 +55,15 @@ func main() {
 	fmt.Println(<-shell)
 	fmt.Println(<-desktop)
 
-	fmt.Println(fmt.Sprintf("\n%10s %s%s%s%s %s", "-", cyan, bold, "-", reset, "-"))
+	fmt.Println("\n         - \033[36m\033[1m-\033[0m -")
 }
 
 func formatLine(f string, v string) string {
-	return fmt.Sprintf(format, bold, cyan, f, reset, magenta, v, reset)
+	return fmt.Sprintf(format, f, magenta, v)
 }
 
 func formatError(f string) string {
-	return fmt.Sprintf(format, bold, cyan, f, reset, red, "Error!", reset)
+	return fmt.Sprintf(format, f, red, "Error!")
 }
 
 func getUser(c chan string) {
