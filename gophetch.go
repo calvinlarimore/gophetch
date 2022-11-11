@@ -146,7 +146,7 @@ func getShell(c chan string) {
 	s, ok := os.LookupEnv("SHELL")
 
 	if !ok {
-		c <- formatLine("Shell", "/usr/bin/sh or Unknown")
+		c <- formatLine("Shell", "/usr/bin/sh / Unknown")
 		return
 	}
 
@@ -157,7 +157,7 @@ func getDesktop(c chan string) {
 	d, ok := os.LookupEnv("XDG_CURRENT_DESKTOP")
 
 	if !ok {
-		c <- formatLine("WM/DE", "None/Unknown")
+		c <- formatLine("WM/DE", "None / Unknown")
 		return
 	}
 
