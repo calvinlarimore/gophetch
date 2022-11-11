@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"os/user"
+	"runtime"
 
 	"github.com/shirou/gopsutil/v3/cpu"
 	"github.com/shirou/gopsutil/v3/host"
@@ -24,6 +25,8 @@ const (
 )
 
 func main() {
+	runtime.GOMAXPROCS(8)
+
 	fmt.Print("      - \033[36m\033[1mGophetch\033[0m -\n\n")
 
 	username := make(chan string, 1)
